@@ -15,6 +15,10 @@ Games.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        platforms: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         game_description: {
             type: DataTypes.STRING,
             allowNull: false,
