@@ -16,7 +16,7 @@ Games.init(
             allowNull: false,
         },
         game_description: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [8],
