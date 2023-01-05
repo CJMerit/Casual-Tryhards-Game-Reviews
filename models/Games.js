@@ -20,17 +20,14 @@ Games.init(
             allowNull: false,
         },
         game_description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-            },
+            type: DataTypes.TEXT('medium'),
+            allowNull: false
         },
         release_date: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        background_image: {
+        cover: {
             type: DataTypes.STRING,
         },
     },
