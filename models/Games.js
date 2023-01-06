@@ -15,6 +15,11 @@ Games.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        slug: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
         platforms: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,6 +31,9 @@ Games.init(
         release_date: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        metacritic: {
+            type: DataTypes.INTEGER,
         },
         cover: {
             type: DataTypes.STRING,
