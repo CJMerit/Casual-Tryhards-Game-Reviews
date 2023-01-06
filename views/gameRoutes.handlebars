@@ -1,0 +1,72 @@
+<section class="col-12">
+  <div class="row d-flex justify-content-around mx-2">
+    <div class="col-md-2 col-2">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline searchForm">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search a game!"
+            aria-label="Search"
+            id="form-input"
+          />
+          <button
+            class="btn btn-outline-secondary my-2 my-sm-0"
+            id="searchBtn"
+            type="submit"
+          >Search</button>
+        </form>
+      </nav>
+    </div>
+
+
+    {{! version2 game and description card }}
+    <div class="card gameCard col-4" style="width: 50rem;">
+      <img id="game-image" src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title" id="game-title" data-slug="{{slug}}" ="">Game Title: {{title}}</h5>
+        <h6 id="realeasedDate"></h6>
+        <h6 id="metacritic"></h6>
+        <p class="card-text" id="game-description">Description:
+          {{game_description}}</p>
+      </div>
+    </div>
+
+    <div class="col-4">
+    
+        <form id="reviewForm" class="form-inline reviewForm">
+          <div class="form-group mb-2">
+            <label for="staticRating" class="sr-only">Rating</label>
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              id="staticRating"
+              value="Your rating"
+            />
+          </div>
+        </form>
+        <form>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="inputRating" class="sr-only">Rating</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputRating"
+              placeholder="Rating 1-100"
+            />
+             <label for="exampleFormControlTextarea1">Enter your review here!</label>
+            <textarea
+              class="form-control"
+              id="userReview"
+              rows="3"
+            ></textarea>
+             <div class="text center">
+                <button type="submit" class="btn btn-primary postReview mb-2">Submit</button>
+              </div>  
+          </div>
+        </form>
+    </div>
+  </div>
+</section>
+<script src="/js/game.js"></script>
