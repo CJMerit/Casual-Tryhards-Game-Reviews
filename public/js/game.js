@@ -10,7 +10,7 @@ const searchForm = async (event) => {
     if (search) {
       const response = await fetch(`/search?gametitle=${search}`, {
         method: "GET",
-        // body: JSON.stringify({ search }),
+        body: JSON.stringify({ search }),
         headers: { "Content-Type": "application/json" },
       })
         .then((results) => {
@@ -29,7 +29,6 @@ const searchForm = async (event) => {
     let gameCardEl = document.querySelector(".gameCard");
     gameCardEl.style.display = "inline-block";
     let gameTitle = document.getElementById("game-title");
-    gameTitle.setAttribute("data-slug", gameData.slug)
     let gameDescription = document.getElementById("game-description");
     let gameMetacritic = document.getElementById("metacritic")
     let gameImage = document.getElementById("game-image");
@@ -68,7 +67,6 @@ const searchForm = async (event) => {
   
   
   
-    let gameSlug = document.getElementById("game-title").getAttribute("data-slug");
     let gameId = document.getElementById("game-title").getAttribute("data-gameId");
     let gameReleased = document.getElementById("realeasedDate");
     let gameMetacritic = document.getElementById("metacritic");
@@ -88,7 +86,6 @@ const searchForm = async (event) => {
         method: "POST",
         body: JSON.stringify({
           title: gameTitle,
-          slug: gameSlug,
           game_description: gameDescription,
           release_date: gameReleased,
           metacritic: gameMetacritic,

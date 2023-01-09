@@ -47,19 +47,17 @@ router.post("/", async (req, res) => {
       console.log(req.body);
       const gamesData = await Games.create(req.body, {
         title: req.body.title,
-        slug: req.body.slug,
         game_description: req.body.game_description,
         release_date: req.body.release_date,
-        metacritic: req.body.metacritic,
         background_image: req.body.background_image
       });
       res.status(200).json("Nice job. You added to the DB");
     } catch (err) {
       res.status(500).json(err);
     }
-  });
-  // delete user
-  router.delete("/:id", async (req, res) => {
+});
+ // delete user
+ router.delete("/:id", async (req, res) => {
     try {
       const userData = await Games.destroy({ where: { id: req.params.id } });
       if (!userData) {
@@ -69,7 +67,8 @@ router.post("/", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
-  module.exports = router;
+});
+
+module.exports = router;
 
 
