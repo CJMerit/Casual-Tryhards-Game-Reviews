@@ -19,22 +19,22 @@
     <div>
       <ul class="nav justify-content-end">
         <li id="hm" class="nav-item">
-          <a href="/" class="nav-link text-white">Home</a>
+          <a href="/" class="nav-link">Home</a>
         </li>
         <li id="srch" class="nav-item">
-          <a href="/games" class="nav-link text-white">Search</a>
+          <a href="/games" class="nav-link">Search</a>
         </li>
         {{!-- Conditionally render login or logout links  --}}
         {{#if logged_in}}
         <li id="dasb" class="nav-link">
-          <a href="/dashboard" class="nav-link text-white">Dashboard</a>
+          <a href="/dashboard" class="nav-link">Dashboard</a>
         </li>
         <li id="lo" class="nav-link">
-          <a href="/logout" class="nav-link text-white">Log Out</a>
+          <a href="/logout" class="nav-link">Log Out</a>
         </li>
       {{else}}
         <li id="su" class="nav-item">
-          <a href="/signup" class="nav-link text-white">Sign Up</a>
+          <a href="/login" class="nav-link">Sign Up</a>
         </li>
       {{/if}}
       </ul>
@@ -46,7 +46,7 @@
       
     <footer class="footer bg-dark text-whitle col fixed-bottom">
       <h4>Powered by
-        <a href="https://rawg.io/apidocs" class="text-white">RawG</a>
+        <a href="https://api-docs.igdb.com/#about" class="text-white">IGDB</a>
       </h4>
     </footer>
     {{!-- jquery --}}
