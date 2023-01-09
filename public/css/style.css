@@ -3,60 +3,59 @@
     width: 45%;
     max-height: 250px;
     justify-content: center;
-  }
+}
+
+.game-titles {
+  text-decoration: none;
+}
+
+.footer {
+  text-justify: center;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: right;
+  margin: 0%;
+}
   
-  .footer {
-    text-justify: center;
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 0;
-    text-align: center;
-    margin: 0%;
-  }
+/* For homepage large sign up text */
+.advertise {
+  text-align: center;
+}
   
-  /* For carousel image sizing */
-  .carousel-img {
-    max-height: 25em;
-    margin: auto;
-  }
-  
-  /* For homepage large sign up text */
-  .advertise {
-    text-align: center;
-  }
-  
-  #game-description {
-    max-height: 200px;
-    overflow: auto;
-  }
-  #title{
+#game-description {
+  max-height: 200px;
+  overflow: auto;
+}
+
+#title{
   right: 20px;
   bottom: 35px;
-  }
+}
   
-  .nav{
-    margin-right:50px;
-    font-size: 24px;
-    top: 50px;
-    list-style: none;
-  }
+.nav{
+  margin-right:50px;
+  font-size: 24px;
+  top: 50px;
+  list-style: none;
+}
   
-  #hm:hover{
-    text-decoration: underline;
-  }
+#hm:hover{
+  text-decoration: underline;
+}
   
-  #srch:hover{
-    text-decoration: underline;
-  }
+#srch:hover{
+  text-decoration: underline;
+}
   
-  #dash:hover{
-    text-decoration: underline;
-  }
+#dash:hover{
+  text-decoration: underline;
+}
   
-  #lo:hover{
-    text-decoration: underline;
-  }
+#lo:hover{
+  text-decoration: underline;
+}
   
-  #su:hover{
-    text-decoration: underline;
-  }
+#su:hover{
+  text-decoration: underline;
+}
