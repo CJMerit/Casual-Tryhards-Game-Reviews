@@ -7,11 +7,10 @@
   
   .footer {
     text-justify: center;
-    padding: 15px;
+    padding: 10px;
     margin-top: 20px;
     margin-bottom: 0;
     text-align: center;
-  
     margin: 0%;
   }
   
@@ -26,16 +25,11 @@
     text-align: center;
   }
   
-  .gameCard {
-    display: none;
-  }
-  
   #game-description {
     max-height: 200px;
     overflow: auto;
   }
   #title{
-  position:relative;
   right: 20px;
   bottom: 35px;
   }
@@ -43,8 +37,8 @@
   .nav{
     margin-right:50px;
     font-size: 24px;
-    position: relative;
     top: 50px;
+    list-style: none;
   }
   
   #hm:hover{

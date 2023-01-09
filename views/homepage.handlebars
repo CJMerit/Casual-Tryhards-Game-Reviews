@@ -1,3 +1,12 @@
+{{#each games as |game| }}
+<div class="row">
+  <a class="col" href="/games/{{game.id}}">{{game.name}}</a>
+  <img class="col" src={{game.cover}}>
+  <p class="col">
+    {{game.game_description}}
+  </p>
+</div>
+{{/each}}
 <!--Carousel for home page-->
 <div
   id="carouselExampleIndicators"
@@ -63,6 +72,6 @@
   <!--Sign in Advertisement-->
   <div class="advertise container mx-auto px-auto">
     <p class="lead">Sign up to write your own review!</p>
-    <h1 class="display-4"><a href="/signup" class="text-dark">Sign Up</a></h1>
+    <h1 class="display-4"><a href="/login" class="text-dark">Sign Up</a></h1>
   </div>
 </div>
