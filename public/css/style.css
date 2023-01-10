@@ -32,7 +32,12 @@
   right: 20px;
   bottom: 35px;
 }
-  
+
+#game-image {
+  height: 200px;
+  width: 200px;
+}
+
 .nav{
   margin-right:50px;
   font-size: 24px;

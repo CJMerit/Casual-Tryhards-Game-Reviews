@@ -1,8 +1,8 @@
 {{#each games as |game| }}
 <div class="row">
-  <a class="col-3 h3 text-center game-titles" href="/games/{{game.id}}">{{game.title}}</a>
+  <a class="col-3 h3 mt-5 text-center game-titles" href="/api/games/{{game.id}}">{{game.title}}</a>
   <img class="col-3 p-5" src={{game.cover}}>
-  <p class="col-6">
+  <p class="col-6 mt-5">
     {{game.game_description}}
   </p>
 </div>

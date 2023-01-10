@@ -21,27 +21,6 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/games/:id', async (req, res) => {
-	try {
-	  const gameData = await Games.findByPk(req.params.id, {
-		include: [
-		  {
-			attributes: ['name'],
-		  },
-		],
-	  });
-  
-	  const game = gameData.get({ plain: true });
-  
-	  res.render('project', {
-		...game,
-		logged_in: req.session.logged_in
-	  });
-	} catch (err) {
-	  res.status(500).json(err);
-	}
-});
-
 router.get('/profile', withAuth, async (req, res) => {
 	try {
 	  // Find the logged in user based on the session ID
