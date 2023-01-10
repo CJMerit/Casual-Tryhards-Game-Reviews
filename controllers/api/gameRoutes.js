@@ -12,11 +12,11 @@ router.get("/",async(req,res) => {
                 attributes:["id","review_body","review_date","user_id"],
             },],
         });
-        console.log(gameData)
         const game = gameData.map((game)=> game.get({plain: true}));
-        console.log("game",game);
-        res.status(200).json(gamesData);
-        console.log()
+        res.render('search', {
+          ...game,
+          logged_in: req.session.logged_in
+        });
     }catch (err) {
         res.status(500).jason(err);
     }
@@ -25,7 +25,7 @@ router.get("/",async(req,res) => {
 router.get("/:id", async (req, res) => {
     //retro fit this code to our db
     try {
-        const gamesData = await Games.findByPk(req.params.id, {
+        const gameData = await Games.findByPk(req.params.id, {
             include:[{
                 model: Review,
                 attributes: ["id","review_body","review_date","user_id"],
@@ -35,9 +35,13 @@ router.get("/:id", async (req, res) => {
             res.status(404).json({message:'No Game found with this id'});
             return;
         }
-        res.status(200).json(gameData);
+        const game = gameData.get({plain: true});
+        res.render('games', {
+          ...game,
+          logged_in: req.session.logged_in
+        })
     }catch (err) {
-        res.status(500).jason(err);
+        res.status(500).json(err);
 }
 });
 
