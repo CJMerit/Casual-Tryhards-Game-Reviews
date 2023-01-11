@@ -37,7 +37,7 @@ const signupForm = async (event) => {
     });
   
     if (response.ok) {
-      document.location.replace('/games');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
