@@ -1,5 +1,5 @@
 {
-  "name": "crowd-funding",
+  "name": "Casual Tryhards",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -23,7 +23,10 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "axios": "^1.2.2",
+    "node-fetch": "2.0"
+
   },
   "devDependencies": {
     "eslint": "^8.29.0",
