@@ -1,8 +1,8 @@
 <section class="col-12">
-  <div class="row d-flex justify-content-around mx-2">
-    <div class="col-md-2 col-2">
+  <div class="row d-flex justify-content-around mx-2 mt-4">
+    <div class="col-md-4 col-4">
       <nav class="navbar navbar-light bg-light">
-        <form class="form-inline searchForm">
+        <form class="form-inline searchForm mx-2 p-2">
           <input
             class="form-control mr-sm-2"
             type="search"
@@ -22,7 +22,7 @@
 
     {{! version2 game and description card }}
     <div class="card gameCard col-4" style="width: 50rem;">
-      <img id="game-image" src={{cover}} class="card-img-top" alt="..." />
+      <img id="game-image" src={{cover}} class="card-img-top mt-2" alt="..." />
       <div class="card-body">
         <h5 class="card-title" id="game-title">Game Title: {{title}}</h5>
         <h6 id="realeasedDate"></h6>
@@ -62,7 +62,7 @@
               rows="3"
             ></textarea>
              <div class="text center">
-                <button type="submit" class="btn btn-primary postReview mb-2">Submit</button>
+                <button type="submit" class="btn btn-primary postReview my-2">Submit</button>
               </div>  
           </div>
         </form>
