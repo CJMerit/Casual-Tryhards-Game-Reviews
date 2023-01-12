@@ -2,9 +2,14 @@
 A website for video game reviews and guides.
 
 ## Project Descriptions
-1. 
+1. Home page allows user to search the database for seeded games
+2. User can sign up and login to website.
+3. Once a game is picked, user can read description of game and give rated review on it
 ### Possible Future Features
-1. 
+1. A profile for user to look at games and reviews saved under their name.
+2. Displaying the reviews submitted
+3. Allow user to submit games to the database themselves
+4. A recommendation feature based on the user's reviews on other games
 
 ## User Story
 AS A video game player, 
