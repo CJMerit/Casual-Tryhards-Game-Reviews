@@ -52,7 +52,7 @@ DB_PASSWORD='(whatever your password is)'
 
 ## Usage
 
-Visit this web address to see the github deployed page for the repo [https://hidden-river-32910.herokuapp.com/]
+Visit this web address to see the github deployed page for the repo [https://casual-tryhards-app.herokuapp.com/]
 
 Using chrome as the browser for the web page, right click on it and click inspect to use Chrome DevTools to inspect the html and CSS.
 
