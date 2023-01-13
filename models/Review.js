@@ -11,7 +11,7 @@ Review.init(
             autoIncrement: true,
         },
         review_body: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('medium'),
             allownull: false,
         },
         review_date: {

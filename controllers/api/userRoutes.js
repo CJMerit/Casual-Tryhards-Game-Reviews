@@ -10,15 +10,16 @@ router.post('/', async (req, res) => {
       req.session.logged_in = true;
 
       res.status(200).json(userData);
+    
     });
-    console.log(logged_in)
-  } catch (err) {
+  } 
+  catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.post('/login', async (req, res) => {
-  
+  console.log(req.body.userEmail);
     try {
       const userData = await User.findOne({ where: { email: req.body.userEmail } });
       if (!userData) {
@@ -51,6 +52,7 @@ router.post('/login', async (req, res) => {
 });
   
 router.post('/logout', (req, res) => {
+
     if (req.session.logged_in) {
         req.session.destroy(() => {
         res.status(204).end();
@@ -59,6 +61,9 @@ router.post('/logout', (req, res) => {
     else {
     res.status(404).end();
     }
+    res.render('homepage', {
+			logged_in: req.session.logged_in
+		})
 });
   
 module.exports = router;

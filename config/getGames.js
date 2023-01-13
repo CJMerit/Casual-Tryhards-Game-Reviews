@@ -44,7 +44,7 @@ async function getGame() {
                 }
             }
         }
-        let data = fs.readFileSync('Games.json');
+        let data = fs.readFileSync('../seeds/Games.json');
         let gamesWritten = JSON.parse(data);
         console.log(gamesWritten.length)
         

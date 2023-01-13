@@ -1,30 +1,3 @@
-const searchForm = async (event) => {
-  event.preventDefault();
-  
-  // Collect values from the login form
-  let search = document.querySelector("#form-input").value.trim();
-  // removes any spaces in the search string
-  search = search.replace(/\s/g, '-');
-  
-  console.log("search" + search);
-  if (search) {
-    const response = await fetch(`/search?gametitle=${search}`, {
-      method: "GET",
-      body: JSON.stringify({ search }),
-      headers: { "Content-Type": "application/json" },
-    })
-    .then((results) => {
-      // console.log(response);
-      return results.json();
-    })
-    .then((resultsData) => {
-      console.log("bark", resultsData);
-      displayGameInfo(resultsData);
-    });
-  
-  }
-};
-  
 function displayGameInfo(gameData) {
   let gameCardEl = document.querySelector(".gameCard");
   gameCardEl.style.display = "inline-block";
@@ -34,15 +7,35 @@ function displayGameInfo(gameData) {
   let gameReleased = document.getElementById("realeasedDate");
   
   gameTitle.textContent = gameData.title;
-  gameTitle.setAttribute("data-gameId", gameData.gameId)
   gameDescription.textContent = gameData.game_description;
   gameImage.setAttribute("src", gameData.cover);
   gameReleased.textContent = gameData.release_date;
 }
+
+const searchForm = async (event) => {
+  event.preventDefault();
+  
+  // Collect values from the login form
+  let search = document.querySelector("#form-input").value.trim();
+  // removes any spaces in the search string
+  search = search.replace(/\s/g, '-');
+  
+  if (search) {
+    const response = await fetch('/api/games', {
+      method: "GET",
+      body: JSON.stringify({ title: search }),
+      headers: { "Content-Type": "application/json" },
+    })
+    displayGameInfo(response);
+  }
+};
   
 const reviewForm = async (event) => {
   event.preventDefault();
   
+  let routeParams = document.location.search.split('/');
+  let gameID = routeParams[2];
+
   console.log("Inside reviewForm");
   // grab the rating || verify its filled in
   let ratingEl = document.getElementById("inputRating");
@@ -63,10 +56,7 @@ const reviewForm = async (event) => {
     alert("Please search the game you want to review.")
   }
   
-  
-  
-  let gameId = document.getElementById("game-title").getAttribute("data-gameId");
-  let gameReleased = document.getElementById("realeasedDate");
+  let gameReleased = document.getElementById("releasedDate");
   let gameDescription = document.getElementById("game-description");
   let gameImage = document.getElementById("game-image").getAttribute("src");
   
@@ -87,14 +77,24 @@ const reviewForm = async (event) => {
       }),
       headers: { "Content-Type": "application/json" },
     })
-    .then((response) => {
-      console.log("back from post");
+    console.log("back from post");
+  }
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
+
+  today = mm + '/' + dd + '/' + yyyy;
+
+  const postReview = await fetch('/api/reviews', {
+    method: "POST",
+    body: JSON.stringify({
+      review_body: reviewContent,
+      review_date: today,
+      game_id: gameID
     })
-  }
-  
-  const postReview = {
-  
-  }
+  })
+  console.log(postReview);
   
 }
   

@@ -6,19 +6,20 @@ const {Games, Review} =require("../../models");
 router.get("/",async(req,res) => {
     //retro fit this code to our db
     try{
-        const gameData = await Games.findAll({
-            include: [{
+        const gameData = await Games.findAll({ 
+          where: { title: req.body.title },
+          include: [{
                 model: Review,
                 attributes:["id","review_body","review_date","user_id"],
             },],
         });
-        const game = gameData.map((game)=> game.get({plain: true}));
+        const gameSearch = gameData.map((game)=> game.get({plain: true}));
         res.render('search', {
-          ...game,
+          ...gameSearch,
           logged_in: req.session.logged_in
         });
     }catch (err) {
-        res.status(500).jason(err);
+      res.status(500).jason(err);
     }
 });
 
