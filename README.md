@@ -31,6 +31,7 @@ SO THAT I can have deeper insight on whether it’s something I’d want to play
 - MySQL
 - Sequelize
 - Node.js
+- Heroku
 
 ## Installation
 There are the instructions if you wish to run the repo locally:
