@@ -30,6 +30,7 @@ SO THAT I can have deeper insight on whether it’s something I’d want to play
 - Express
 - MySQL
 - Sequelize
+- Node.js
 
 ## Installation
 There are the instructions if you wish to run the repo locally:
