@@ -12,11 +12,11 @@ router.get("/",async(req,res) => {
                 attributes:["id","review_body","review_date","user_id"],
             },],
         });
+        console.log(gameData)
         const game = gameData.map((game)=> game.get({plain: true}));
-        res.render('search', {
-          ...game,
-          logged_in: req.session.logged_in
-        });
+        console.log("game",game);
+        res.status(200).json(gamesData);
+        console.log()
     }catch (err) {
         res.status(500).jason(err);
     }
@@ -25,7 +25,7 @@ router.get("/",async(req,res) => {
 router.get("/:id", async (req, res) => {
     //retro fit this code to our db
     try {
-        const gameData = await Games.findByPk(req.params.id, {
+        const gamesData = await Games.findByPk(req.params.id, {
             include:[{
                 model: Review,
                 attributes: ["id","review_body","review_date","user_id"],
@@ -35,13 +35,9 @@ router.get("/:id", async (req, res) => {
             res.status(404).json({message:'No Game found with this id'});
             return;
         }
-        const game = gameData.get({plain: true});
-        res.render('games', {
-          ...game,
-          logged_in: req.session.logged_in
-        })
+        res.status(200).json(gameData);
     }catch (err) {
-        res.status(500).json(err);
+        res.status(500).jason(err);
 }
 });
 
@@ -51,17 +47,19 @@ router.post("/", async (req, res) => {
       console.log(req.body);
       const gamesData = await Games.create(req.body, {
         title: req.body.title,
+        slug: req.body.slug,
         game_description: req.body.game_description,
         release_date: req.body.release_date,
+        metacritic: req.body.metacritic,
         background_image: req.body.background_image
       });
       res.status(200).json("Nice job. You added to the DB");
     } catch (err) {
       res.status(500).json(err);
     }
-});
- // delete user
- router.delete("/:id", async (req, res) => {
+  });
+  // delete user
+  router.delete("/:id", async (req, res) => {
     try {
       const userData = await Games.destroy({ where: { id: req.params.id } });
       if (!userData) {
@@ -71,8 +69,5 @@ router.post("/", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-});
-
-module.exports = router;
-
-
+  });
+  module.exports = router;
